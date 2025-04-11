@@ -2,9 +2,11 @@ name: Deploy Website 12
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+      - agent
   workflow_dispatch:
-  
+
 permissions:
   contents: read
   pages: write
@@ -28,7 +30,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './app'
+          path: "./app"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
