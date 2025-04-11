@@ -1,0 +1,37 @@
+name: Deploy PR previews
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy-preview:
+    environment:
+      name: preview-${{ github.ref }}
+      url: ${{ steps.preview-step.outputs.preview-url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: './app' # The directory containing your built site
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          # preview-branch: gh-pages # The branch to push the preview to
+          # umbrella-dir: pr-preview # The directory to store the previews
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #action: auto
+      # - if: steps.preview-step.outputs.deployment-action == "deploy"
+      #   run: echo "Preview visible at ${{ steps.preview-step.outputs.preview-url }}"
