@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
       let fareType = '';
   
       if (city === '75000' || city === '75012' || city === 'paris' || city === 'Paris') {
-        message = 'Great news! You qualify for our In-City residents fare.';
-        fareType = 'in-city';
+        message = 'Based on your location, you will have the External visitor fare.';
+        fareType = 'external';
       } else if (city) {
         message = 'Based on your location, you will have the External visitor fare.';
         fareType = 'external';
