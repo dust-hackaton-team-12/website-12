@@ -10,3 +10,20 @@
 [data-bs-theme=dark] .wave {
     fill: var(--bs-body-bg, #212529); /* Match body background in dark mode */
 }
+
+.fare-message {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .fare-message.in-city {
+    background-color: #f0fdf4;
+    color: #15803d;
+  }
+  .fare-message.external {
+    background-color: #fffbeb;
+    color: #b78103;
+  }

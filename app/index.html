@@ -414,11 +414,14 @@
               <input type="email" id="email" class="form-control" placeholder="Your email" required>
             </div>
             <div class="col-12">
-              <label for="city" class="form-label">City / Zip Code</label>
+              <label for="city" class="font-weight-medium">City / Zip Code</label>
               <div class="input-group">
                 <input type="text" id="city" class="form-control" placeholder="Your city or zip code">
-                <button class="btn btn-primary" type="button">Check Fare</button>
+                <div class="input-group-append">
+                  <button type="button" id="checkFareBtn" class="btn btn-primary">Check Fare</button>
+                </div>
               </div>
+              <div id="fareMessage" class="fare-message" style="display: none;"></div>
             </div>
             <div class="col-12">
               <label for="subject" class="form-label">Subject</label>
@@ -472,6 +475,7 @@
     </footer>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/check-fare.js"></script>
 </body>
 
 </html>
