@@ -1,1 +1,12 @@
 .text-sky-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}
+
+/* CSS for light and dark mode wave background */
+.wave {
+    fill: var(--wave-bg, #ffffff); /* Default to white */
+    }
+
+/* Dark mode specific styles */
+/* @media (prefers-color-scheme: dark) {*/
+[data-bs-theme=dark] .wave {
+    fill: var(--bs-body-bg, #212529); /* Match body background in dark mode */
+}
